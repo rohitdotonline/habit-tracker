@@ -1,0 +1,17 @@
+[
+    {
+      "id": "habit-1",
+      "name": "Read for 30 mins",
+      "color": "#4CAF50"
+    },
+    {
+      "id": "habit-2",
+      "name": "Drink 2L Water",
+      "color": "#2196F3"
+    },
+    {
+      "id": "habit-3",
+      "name": "No Sugar",
+      "color": "#FF5722"
+    }
+  ]

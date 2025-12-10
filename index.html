@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <button id="prevMonth" aria-label="Previous month">Previous</button>
+      <div class="title">
+        <div class="month" id="monthLabel"></div>
+        <div class="year" id="yearLabel"></div>
+      </div>
+      <button id="nextMonth" aria-label="Next month">Next</button>
+    </header>
+
+    <main>
+      <div id="tableContainer" class="table-container" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
