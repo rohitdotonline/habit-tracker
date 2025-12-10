@@ -110,13 +110,7 @@ td.date-cell .weekday {
   margin: 0 auto;
   border: 1.5px solid #ddd;
   border-radius: 3px;
-  cursor: pointer;
-  transition: all 0.12s ease;
   position: relative;
-}
-
-.checkbox:hover {
-  border-color: #bbb;
 }
 
 .checkbox.checked {
