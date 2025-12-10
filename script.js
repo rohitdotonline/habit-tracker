@@ -17,10 +17,10 @@ function daysInMonth(year, month) {
   return new Date(year, month + 1, 0).getDate();
 }
 
-function formatDateKey(habitId, year, month, day) {
+function formatDateKey(year, month, day) {
   const mm = String(month + 1).padStart(2, "0");
   const dd = String(day).padStart(2, "0");
-  return `${habitId}_${year}-${mm}-${dd}`;
+  return `${year}-${mm}-${dd}`;
 }
 
 function renderTable(year, month) {
@@ -44,12 +44,9 @@ function renderTable(year, month) {
     const th = document.createElement("th");
     const wrap = document.createElement("div");
     wrap.className = "habit-header";
-    const dot = document.createElement("span");
-    dot.className = "habit-dot";
-    dot.style.background = habit.color || "#4a8dff";
     const name = document.createElement("span");
     name.textContent = habit.name;
-    wrap.append(dot, name);
+    wrap.appendChild(name);
     th.appendChild(wrap);
     headerRow.appendChild(th);
   });
@@ -68,21 +65,17 @@ function renderTable(year, month) {
     dateCell.innerHTML = `<span class="day">${day}</span><span class="weekday">${weekday}</span>`;
     row.appendChild(dateCell);
 
+    const dateKey = formatDateKey(year, month, day);
+
     habits.forEach((habit) => {
       const td = document.createElement("td");
       const check = document.createElement("div");
       check.className = "checkbox";
 
-      const storageKey = formatDateKey(habit.id, year, month, day);
-      const saved = localStorage.getItem(storageKey);
-      if (saved === "true") {
+      const isCompleted = habit.completedDates && habit.completedDates.includes(dateKey);
+      if (isCompleted) {
         check.classList.add("checked");
       }
-
-      check.addEventListener("click", () => {
-        const isChecked = check.classList.toggle("checked");
-        localStorage.setItem(storageKey, String(isChecked));
-      });
 
       td.appendChild(check);
       row.appendChild(td);
@@ -120,4 +113,3 @@ nextBtn.addEventListener("click", () => {
 });
 
 init();
-
